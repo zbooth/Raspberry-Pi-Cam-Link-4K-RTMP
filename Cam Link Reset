@@ -1,0 +1,6 @@
+#camlink 4K
+#Camlink problem test 
+#sudo usbreset 0fd9:0061 <--- is camlink 720p model
+sudo usbreset 0fd9:0066
+echo "Waiting 30 secs"
+sleep 30
