@@ -1,0 +1,9 @@
+ffmpeg -hide_banner -f alsa -ac 2 -i hw:1,0 -framerate 30 -thread_queue_size 32 -re -f v4l2 -i /dev/video0 -c copy -vcodec h264_omx\
+ -acodec aac -b:a 128k -ar 44100\
+ -r 25 \
+ -qmin 2 -qmax 51 -b:v 6M -maxrate:v 100M -bufsize 100M -g 50 -keyint_min 30 -strict experimental\
+ -crf 0\
+ -tune zerolatency \
+ -preset fast \
+-flags +global_header\
+ -f flv rtmp://a.rtmp.youtube.com/live2/{putyourkeyhere}
